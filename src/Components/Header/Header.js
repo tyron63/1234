@@ -59,7 +59,11 @@ class ConnectedHeader extends Component {
               <MenuIcon size="medium" />
             </IconButton>
 
-            <img src='https://image.shutterstock.com/image-vector/shopping-logo-260nw-746834437.jpg' alt={'Logo'} style={{ marginLeft: 10,  width: 100 , height:50 }} />
+            <img
+              src="https://image.shutterstock.com/image-vector/shopping-logo-260nw-746834437.jpg"
+              alt={'Logo'}
+              style={{ marginLeft: 10, width: 100, height: 50 }}
+            />
             <TextField
               label="Search products"
               value={this.state.searchTerm}
