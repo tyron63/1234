@@ -39,6 +39,7 @@ class ConnectedHeader extends Component {
     searchTerm: '',
     anchorEl: null,
     categoryFilterValue: categories[0].name,
+    loggedInUser: null,
   };
 
   render() {
