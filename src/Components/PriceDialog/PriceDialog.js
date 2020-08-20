@@ -105,4 +105,5 @@ class PriceDialog extends Component {
   }
 }
 
+
 export default PriceDialog;

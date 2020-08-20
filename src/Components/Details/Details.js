@@ -59,11 +59,13 @@ class ConnectedDetails extends Component {
   }
 
   render() {
-    if (this.state.itemLoading) {
+    const { itemLoading, item, quantity, relatedItems } = this.state;
+
+    if (itemLoading) {
       return <CircularProgress className="circular" />;
     }
 
-    if (!this.state.item) {
+    if (!item) {
       return null;
     }
 
@@ -76,11 +78,11 @@ class ConnectedDetails extends Component {
             fontSize: 22,
           }}
         >
-          {this.state.item.name}
+          {item.name}
         </div>
         <div style={{ display: 'flex' }}>
           <img
-            src={this.state.item.imageUrls[0]}
+            src={item.imageUrls[0]}
             alt=""
             width={250}
             height={250}
@@ -103,9 +105,9 @@ class ConnectedDetails extends Component {
                 fontSize: 16,
               }}
             >
-              Price: {this.state.item.price} $
+              Price: {item.price} $
             </div>
-            {this.state.item.popular && (
+            {item.popular && (
               <div style={{ fontSize: 14, marginTop: 5, color: '#228B22' }}>
                 (Popular product)
               </div>
@@ -113,7 +115,7 @@ class ConnectedDetails extends Component {
 
             <TextField
               type="number"
-              value={this.state.quantity}
+              value={quantity}
               style={{ marginTop: 20, marginBottom: 10, width: 70 }}
               label="Quantity"
               inputProps={{ min: 1, max: 10, step: 1 }}
@@ -128,8 +130,8 @@ class ConnectedDetails extends Component {
               onClick={() => {
                 this.props.dispatch(
                   addItemInCart({
-                    ...this.state.item,
-                    quantity: this.state.quantity,
+                    ...item,
+                    quantity: quantity,
                   })
                 );
               }}
@@ -156,9 +158,7 @@ class ConnectedDetails extends Component {
             overflow: 'auto',
           }}
         >
-          {this.state.item.description
-            ? this.state.item.description
-            : 'Not available'}
+          {item.description ? item.description : 'Not available'}
         </div>
 
         {/* Relateditems */}
@@ -171,7 +171,7 @@ class ConnectedDetails extends Component {
         >
           Related Items
         </div>
-        {this.state.relatedItems.slice(0, 3).map((x) => {
+        {relatedItems.slice(0, 3).map((x) => {
           return <Item key={x.id} item={x} />;
         })}
       </div>
@@ -179,5 +179,6 @@ class ConnectedDetails extends Component {
   }
 }
 
-let Details = connect()(ConnectedDetails);
+let Details = connect(ConnectedDetails);
+
 export default Details;

@@ -53,7 +53,7 @@ class ConnectedOrder extends Component {
             fontSize: 22,
           }}
         >
-          Total price: {totalPrice} $
+          Total price: R {totalPrice}
         </div>
         <Button
           color="primary"

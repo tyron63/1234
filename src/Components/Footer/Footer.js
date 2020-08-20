@@ -23,7 +23,7 @@ class Footer extends Component {
             Buy
           </div>
           <NavLink
-            to={'/payment'}
+            to={'/'}
             exact
             style={{
               textDecoration: 'none',
@@ -37,7 +37,7 @@ class Footer extends Component {
             <div className="footerItem">Terms of payment</div>
           </NavLink>
           <NavLink
-            to={'/delivery'}
+            to={'/'}
             exact
             style={{
               textDecoration: 'none',
@@ -58,7 +58,7 @@ class Footer extends Component {
             About us
           </div>
           <NavLink
-            to={'/info'}
+            to={'/'}
             exact
             style={{
               textDecoration: 'none',
@@ -78,7 +78,20 @@ class Footer extends Component {
           >
             Social Media
           </div>
-          <div className="footerItem">Facebook</div>
+          <NavLink
+            to={'/'}
+            exact
+            style={{
+              textDecoration: 'none',
+              color: 'rgb(32, 32, 34)',
+            }}
+            activeStyle={{
+              color: '#4282ad',
+              textDecoration: 'underline',
+            }}
+          >
+            <div className="footerItem">Facebook</div>
+          </NavLink>
         </div>
       </div>
     );

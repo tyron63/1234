@@ -1,4 +1,13 @@
-import * as CONSTANTS from './Constants';
+import {
+  ADD_ITEM_IN_CART,
+  SHOW_CART_DLG,
+  DELETE_CART_ITEM,
+  TOGGLE_MENU,
+  UPDATE_CART_ITEM_QUANTITY,
+  SET_CHECKEDOUT_ITEMS,
+  SET_LOGGED_IN_USER,
+  LOGOUT,
+} from './Constants';
 
 const initialState = {
   cartItems: [],
@@ -10,7 +19,7 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CONSTANTS.ADD_ITEM_IN_CART: {
+    case ADD_ITEM_IN_CART: {
       let index = state.cartItems.findIndex((x) => x.id === action.payload.id);
 
       // Is the item user wants to add already in the cart?
@@ -28,22 +37,22 @@ const rootReducer = (state = initialState, action) => {
       // No, add a new item.
       return { ...state, cartItems: state.cartItems.concat(action.payload) };
     }
-    case CONSTANTS.SHOW_CART_DLG:
+    case SHOW_CART_DLG:
       return { ...state, showCartDialog: action.payload };
-    case CONSTANTS.DELETE_CART_ITEM:
+    case DELETE_CART_ITEM:
       return {
         ...state,
         cartItems: state.cartItems.filter((x) => x.id !== action.payload),
       };
-    case CONSTANTS.TOGGLE_MENU:
+    case TOGGLE_MENU:
       return { ...state, showMenu: !state.showMenu };
-    case CONSTANTS.SET_LOGGED_IN_USER:
+    case SET_LOGGED_IN_USER:
       return { ...state, loggedInUser: action.payload };
-    case CONSTANTS.LOGOUT:
+    case LOGOUT:
       return { ...state, loggedInUser: null, checkedOutItems: [] };
-    case CONSTANTS.SET_CHECKEDOUT_ITEMS:
+    case SET_CHECKEDOUT_ITEMS:
       return { ...state, checkedOutItems: action.payload };
-    case CONSTANTS.UPDATE_CART_ITEM_QUANTITY: {
+    case UPDATE_CART_ITEM_QUANTITY: {
       let index = state.cartItems.findIndex((x) => x.id === action.payload.id);
 
       // User wants to update quantity of existing item.
