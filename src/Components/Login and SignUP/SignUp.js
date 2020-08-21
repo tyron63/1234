@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './css/SignUp.css';
 
 import FormInput from './Cutomstuff/form';
@@ -41,6 +42,7 @@ class SignUp extends Component {
         password: '',
         confirmPassword: '',
       });
+      this.props.history.push("/")
     } catch (error) {
       console.error(error);
     }
@@ -49,6 +51,7 @@ class SignUp extends Component {
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+
   };
 
   render() {
@@ -102,4 +105,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default withRouter(SignUp);

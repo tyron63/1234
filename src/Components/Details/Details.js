@@ -105,7 +105,7 @@ class ConnectedDetails extends Component {
                 fontSize: 16,
               }}
             >
-              Price: {item.price} $
+              Price: R {item.price} 
             </div>
             {item.popular && (
               <div style={{ fontSize: 14, marginTop: 5, color: '#228B22' }}>

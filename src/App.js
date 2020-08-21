@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { Redirect, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import './App.css';
 
 //Components
@@ -16,6 +21,7 @@ import signInOrSignUp from './Components/Login and SignUP/SignInAndSignUp';
 class App extends Component {
   render() {
     return (
+      <Router>
         <div className="app">
           <Header />
           <div className="app-body">
@@ -23,11 +29,8 @@ class App extends Component {
             <div className="content">
               <CartDialog />
               <Switch>
-                <Route
-                  path="/signInOrSignUp"
-                  component={signInOrSignUp}
-                />
-                <Route path="/"  component={ProductList} />
+                <Route path="/signInOrSignUp" component={signInOrSignUp} />
+                <Route path="/" component={ProductList} />
                 <Route path="/details/:id" component={Details} />
                 <ProtectedRoute path="/order" component={Order} />
                 <Route
@@ -51,6 +54,7 @@ class App extends Component {
           </div>
           <Footer />
         </div>
+      </Router>
     );
   }
 }

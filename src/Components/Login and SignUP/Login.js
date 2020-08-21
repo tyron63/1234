@@ -60,6 +60,7 @@ class SignIn extends Component {
             label="password"
             required
           />
+          
           <div className="buttons">
             <CustomButton type="submit"> Sign In </CustomButton>
           </div>
